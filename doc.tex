@@ -1,0 +1,40 @@
+% report, book {chapter, section..} | article {section..}
+
+\documentclass[12pt,a4paper]{article}
+    \title{\textbf{Document}}
+    \author{Kirill Grachev}
+    %\date{MM DD, YYYY}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}  % for theoremstyle
+\usepackage{color}
+\usepackage{gensymb} %\degree
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{cmap}					          % поиск в PDF
+%\usepackage[russian]{babel} %for russian enumeration
+%\usepackage[english]{babel} %for english enumeration
+
+%important commands:
+%\textnumero - No
+%\chapter, \section, \subsection, \subsubsection,
+%\input{other.tex} - as #include<>
+
+\setlength\parindent{0pt}         % Устанавливает длину красной строки 0pt
+\sloppy                                        % строго соблюдать границы текста
+\setcounter{secnumdepth}{0}                % отключение нумерации разделов
+
+\renewcommand{\O}[1]{\mathcal{O}\left(#1\right)} % for O-notation
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+
+\begin{document}
+
+\maketitle %optional
+%\thispagestyle{empty} %for non-numerating
+
+
+\end{document}
+
