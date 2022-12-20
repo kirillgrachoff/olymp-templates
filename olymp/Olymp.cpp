@@ -92,6 +92,7 @@ istream& operator >> (istream& cin, xll& v) {
     while (!s.empty()) {
         v *= 10;
         v += s.back() - '0';
+        s.pop_back();
     }
     if (less) v *= -1;
     return cin;
