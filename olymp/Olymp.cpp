@@ -24,14 +24,14 @@ using ld = long double;
 using ull = unsigned long long;
 using str = string;
 using pll = pair<ll, ll>;
-template <class T>
-using heap_min = priority_queue<T, vector<T>, greater<T>>;
-template <class T>
-using heap_max = priority_queue<T, vector<T>, less<T>>;
+template <typename T>
+using HeapMin = priority_queue<T, vector<T>, greater<T>>;
+template <typename T>
+using HeapMax = priority_queue<T, vector<T>, less<T>>;
 
 #ifdef POINT
 using c_type = ll;
-using point = complex<c_type>;
+using Point = complex<c_type>;
 #define X real
 #define Y imag
 istream& operator >> (istream& cin, point& p) {
@@ -108,8 +108,8 @@ using namespace __gnu_cxx;
 #include <ext/pb_ds/assoc_container.hpp>
 using namespace __gnu_pbds;
 //using namespace __gnu_pbds::detail;
-template <class T, class V = null_type>
-using indexed_tree = tree<T, V, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T, typename V = null_type>
+using IndexedTree = tree<T, V, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 #endif
 
 constexpr ll INF = 0x7fffffffffffffff;
@@ -118,12 +118,12 @@ constexpr ll BASE =  1000000007;
 // 998244353: rev = pow(n, BASE - 2) - root=15311432 - root_pw = 1LL << 23
 
 template <class T>
-constexpr T max() {
+constexpr T Max() {
     return std::numeric_limits<T>::max();
 }
 
 template <class T>
-constexpr T min() {
+constexpr T Min() {
     return std::numeric_limits<T>::min();
 }
 
@@ -144,21 +144,29 @@ constexpr T min() {
 #define mp make_pair
 #define mt make_tuple
 
-template <class T>
-void chMax(T& a, T b) {
-    if (a < b) a = b;
+template <typename T>
+bool ChMax(T& a, const T& b) {
+    if (a < b) {
+        a = b;
+        return true;
+    }
+    return false;
 }
 
-template <class T>
-void chMin(T& a, T b) {
-    if (b < a) a = b;
+template <typename T>
+bool ChMin(T& a, const T& b) {
+    if (b < a) {
+        a = b;
+        return true;
+    }
+    return false;
 }
 
-inline ll divUp(ll a, ll b) {
+inline ll DivUp(ll a, ll b) {
     return (a + b - 1) / b;
 }
 
-[[noreturn]] void panic() {
+[[noreturn]] void Panic() {
     cout << "-1\n";
     exit(0);
 }
