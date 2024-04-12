@@ -128,9 +128,11 @@ constexpr T Min() {
 }
 
 #ifdef Debug
-#define LOG(v) cout << #v << " " << v << "\n";
+#define LOG(expr) cerr << "[" << __FILE__ << ':' << __LINE__ << "] " << expr << '\n';
+#define LOG_V(v) LOG( #v << " " << v );
 #else
-#define LOG(v) ;
+#define LOG_V(v) ;
+#define LOG(expr) if constexpr (false) std::cerr << expr << '\n';
 #endif
 
 #define pb push_back
@@ -176,7 +178,9 @@ void solve() {
 }
 
 int main() {
+#ifndef BZ
     ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+#endif
     cout << setprecision(10) << fixed;
 #ifdef LOCAL
     auto start = std::chrono::system_clock::now();
